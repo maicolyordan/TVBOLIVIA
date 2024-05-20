@@ -1,0 +1,76 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CANALES DE BOLIVIA</title>
+    <!-- Plyr CSS -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #001f3f; /* Azul oscuro */
+            color: white; /* Color de texto blanco para contraste */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 20px;
+        }
+        .plyr__video-embed {
+            width: 640px;
+            height: 264px;
+        }
+        iframe {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CANALES DE BOLIVIA</h1>
+    <div class="container">
+        <img src="http://imgfz.com/i/0gqrQ9t.png" alt="Descripción de la imagen del primer canal">
+        <video id="player1" playsinline controls>
+            <source src="https://streamer02.digital.com.bo:443/session/b89c37fc-58fb-11ee-bb22-00505683ffaa$h1.0$default/2ap337/__cl/cg:sworigin2/__c/REDUNO/__op/hls-default/__f/index.m3u8" type="application/x-mpegURL">
+        </video>
+    </div>
+    <div class="container">
+        <img src="https://1.bp.blogspot.com/-k0QxaHV9rRc/Xx6FHekccBI/AAAAAAAAKjc/uNN_4JLAm482-8GY9wvmfquEmsEdjfUngCLcBGAsYHQ/s1600/red-advenir.png" alt="Descripción de la imagen del segundo canal">
+        <video id="player2" playsinline controls>
+            <source src="http://streamer1.streamhost.org:1935/salive/GMIredadvenirh/playlist.m3u8" type="application/x-mpegURL">
+        </video>
+    </div>
+ <div class="container">
+        <img src="http://imgfz.com/i/JjOIheS.png" alt="Descripción de la imagen del segundo canal">
+        <video id="player3" playsinline controls>
+            <source src="https://streamer01.digital.com.bo:443/session/f99cc3e4-58fa-11ee-9cba-00505683ffaa$h1.0$default/2ap337/__cl/cg:sworigin2/__c/UNITEL/__op/hls-default/__f/index.m3u8" type="application/x-mpegURL">
+        </video>
+    </div>
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6N-OF8SaD_TYptKEfYOd2UVsBlNOy02McQ&usqp=CAU" alt="Descripción de la imagen del segundo canal">
+    <!-- Dailymotion -->
+    <iframe width="560" height="315" src="https://www.dailymotion.com/embed/video/x84eirw" frameborder="0" allowfullscreen></iframe>
+
+    <!-- Plyr JS -->
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
+    <script>
+        // Inicializar los reproductores Plyr
+        const player1 = new Plyr('#player1');
+        const player2 = new Plyr('#player2');
+        const player3 = new Plyr('#player3');
+    </script>
+</body>
+</html>
