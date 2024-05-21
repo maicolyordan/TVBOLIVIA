@@ -15,6 +15,8 @@
             min-height: 100vh;
             background-color: #001f3f; /* Azul oscuro */
             color: white; /* Color de texto blanco para contraste */
+            margin: 0;
+            font-family: Arial, sans-serif;
         }
         h1 {
             text-align: center;
@@ -25,18 +27,31 @@
             flex-direction: column;
             align-items: center;
             margin-bottom: 40px;
+            padding: 20px;
+            background-color: #003366; /* Azul más claro */
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
         }
         img {
-            max-width: 100%;
+            width: 100%;
+            max-width: 400px;
             height: auto;
             margin-bottom: 20px;
+            border-radius: 10px;
         }
         .plyr__video-embed {
-            width: 640px;
-            height: 264px;
+            width: 100%;
+            max-width: 640px;
+            height: auto;
         }
         iframe {
             margin-top: 40px;
+            border: none;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 560px;
+            height: 315px;
         }
     </style>
 </head>
@@ -54,15 +69,16 @@
             <source src="http://streamer1.streamhost.org:1935/salive/GMIredadvenirh/playlist.m3u8" type="application/x-mpegURL">
         </video>
     </div>
- <div class="container">
-        <img src="http://imgfz.com/i/JjOIheS.png" alt="Descripción de la imagen del segundo canal">
+    <div class="container">
+        <img src="http://imgfz.com/i/JjOIheS.png" alt="Descripción de la imagen del tercer canal">
         <video id="player3" playsinline controls>
             <source src="https://streamer01.digital.com.bo:443/session/f99cc3e4-58fa-11ee-9cba-00505683ffaa$h1.0$default/2ap337/__cl/cg:sworigin2/__c/UNITEL/__op/hls-default/__f/index.m3u8" type="application/x-mpegURL">
         </video>
     </div>
-  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6N-OF8SaD_TYptKEfYOd2UVsBlNOy02McQ&usqp=CAU" alt="Descripción de la imagen del segundo canal">
-    <!-- Dailymotion -->
-    <iframe width="560" height="315" src="https://www.dailymotion.com/embed/video/x84eirw" frameborder="0" allowfullscreen></iframe>
+    <div class="container">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRH6N-OF8SaD_TYptKEfYOd2UVsBlNOy02McQ&usqp=CAU" alt="Descripción de la imagen del cuarto canal">
+        <iframe src="https://www.dailymotion.com/embed/video/x84eirw" allowfullscreen></iframe>
+    </div>
 
     <!-- Plyr JS -->
     <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
