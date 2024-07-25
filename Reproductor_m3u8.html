@@ -3,117 +3,92 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reproductor M3U8 con VLC</title>
-    <link href="https://vjs.zencdn.net/7.21.0/video-js.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/videojs-skin@1.0.0/dist/videojs-skin.min.css" rel="stylesheet">
+    <title>Reproductor de Enlace M3U8</title>
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.8/plyr.css" />
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #001f3f; /* Azul oscuro */
-            color: #fff;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+            height: 100vh;
+            background-color: #001f3f;
+            color: white;
+            justify-content: center;
         }
-        h1 {
-            color: #fff;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        input, button {
-            padding: 10px 15px;
-            margin: 10px 0;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        input {
+            padding: 10px;
+            margin: 10px;
             font-size: 16px;
-            transition: all 0.3s ease;
-            background-color: #0056b3;
-            color: #fff;
-        }
-        input:focus, button:hover {
-            border-color: #007bff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            border: none;
+            border-radius: 5px;
         }
         button {
-            background-color: #007bff;
-            color: #fff;
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #000;
             border: none;
+            border-radius: 5px;
             cursor: pointer;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #333;
         }
-        .video-container {
+        .plyr {
             margin-top: 20px;
-            width: 100%;
-            max-width: 900px;
-            height: auto;
-            position: relative;
+            width: 80%;
+            max-width: 600px;
+            border: 2px solid #fff;
             border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .video-container video {
-            width: 100%;
-            height: auto;
-            display: block;
         }
     </style>
 </head>
 <body>
-    <h1>Reproductor M3U8 con VLC</h1>
-    <input type="text" id="m3u8Url" placeholder="Inserte enlace m3u8">
-    <button onclick="playM3U8()">Reproducir</button>
-    <div class="video-container">
-        <video id="videoPlayer" class="video-js vjs-default-skin" controls preload="auto">
-            <source id="videoSource" type="application/x-mpegURL">
-        </video>
-    </div>
 
-    <script src="https://vjs.zencdn.net/7.21.0/video.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/videojs-contrib-hls@latest/dist/videojs-contrib-hls.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/videojs-skin@1.0.0/dist/videojs-skin.min.js"></script>
+    <h1>Reproductor de Enlace M3U8</h1>
+    <input type="text" id="videoURL" placeholder="Inserta el enlace m3u8 u otro enlace">
+    <button onclick="playVideo()">Reproducir</button>
+
+    <video id="videoPlayer" class="plyr__video-embed" controls></video>
+
+    <script src="https://cdn.plyr.io/3.6.8/plyr.polyfilled.js"></script>
     <script>
-        // Función para obtener parámetros de consulta
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
+        const player = new Plyr('#videoPlayer');
+
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('video');
         }
 
-        // Obtener el enlace m3u8 de los parámetros de consulta
-        function loadVideoFromParams() {
-            const videoUrl = getQueryParam('video');
-            if (videoUrl) {
-                const videoPlayer = videojs('videoPlayer');
-                const videoSource = document.getElementById('videoSource');
-                videoSource.src = videoUrl;
-                videoPlayer.load();
-                videoPlayer.play();
+        function playVideo() {
+            const videoURL = document.getElementById('videoURL').value;
+            loadVideo(videoURL);
+        }
+
+        function loadVideo(url) {
+            player.source = {
+                type: 'video',
+                sources: [
+                    {
+                        src: url,
+                        type: 'application/x-mpegURL',
+                    },
+                ],
+            };
+            player.play();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const queryVideo = getQueryParams();
+            if (queryVideo) {
+                document.getElementById('videoURL').value = queryVideo;
+                loadVideo(queryVideo);
             }
-        }
-
-        // Cargar el video si hay un parámetro en la URL
-        window.onload = loadVideoFromParams;
-
-        // Reproducir el video desde el input
-        function playM3U8() {
-            const url = document.getElementById('m3u8Url').value;
-            const videoPlayer = videojs('videoPlayer');
-            const videoSource = document.getElementById('videoSource');
-            
-            if (videojs.browser.IS_IE8 || videojs.browser.IS_EDGE) {
-                alert('Su navegador no soporta reproducción de videos m3u8.');
-                return;
-            }
-            
-            videoSource.src = url;
-            videoPlayer.load();
-            videoPlayer.play();
-        }
+        });
     </script>
+
 </body>
 </html>
