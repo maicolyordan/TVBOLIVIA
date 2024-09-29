@@ -1,0 +1,100 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AMERICA TV GO</title>
+    <style>
+        body {
+            background-color: black;
+            color: white; /* Asegura que el texto sea visible en el fondo negro */
+            font-family: Arial, sans-serif;
+        }
+        iframe {
+            width: 320px; /* Cambia el ancho del reproductor */
+            height: 180px; /* Cambia la altura del reproductor */
+        }
+        .hidden {
+            display: none;
+        }
+        .visible {
+            display: block;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .button {
+            background-color: #ff0000;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .text {
+            margin-top: 20px;
+            text-align: center;
+        }
+        #content {
+            display: none; /* El contenido está oculto hasta que se ingrese la contraseña */
+        }
+    </style>
+</head>
+<body>
+    <!-- Pantalla de inicio con campo de contraseña -->
+    <div id="password-screen" class="container visible">
+        <h1>Ingrese la contraseña</h1>
+        <input type="password" id="password" placeholder="Contraseña">
+        <button class="button" onclick="checkPassword()">Enviar</button>
+        <button class="button" onclick="window.location.href='https://maicolyordan.github.io/Evoluci-nTV-/Inicio.html';">VER MAS CANALES</button>
+        <div class="text">
+            <strong>¡Donación! Apóyanos en nuestro proyecto de canales </strong>
+            <p>
+
+Los demás canales de deportes seguirán siendo completamente gratuitos, pero para acceder al canal América TV GO necesitamos tu apoyo con una donación. Si deseas contribuir, envíame un mensaje por WhatsApp y te enviaré un código QR para que puedas donar.
+
+Después de la donación, te proporcionaré la contraseña para que puedas ingresar al canal América TV GO.
+
+¡Gracias por tu apoyo para que este proyecto siga adelante!
+
+
+</p>
+        </div>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="content">
+        <h1>AMERICA TV GO</h1>
+        <iframe src="https://nebunexa.co/red/?get=https://embed.sdfgnksbounce.com/embed2/americatv.html" frameborder="0" allowfullscreen></iframe>
+        <div class="container">
+            <button class="button" onclick="window.location.href='https://maicolyordan.github.io/Evoluci-nTV-/Inicio.html';">VER MAS CANALES</button>
+            <button class="button" onclick="window.location.href='https://i.ibb.co/wMrCqnm/1727559006926.jpg';">DONACION</button>
+        </div>
+        <div class="text">
+            <p><strong>¡Donación! Apóyanos en nuestro proyecto de canales </strong></p>
+            <p>gracias por usar nuestro servicio</p>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            var inputPassword = document.getElementById("password").value;
+            var correctPassword = "1234"; // Cambia esto por la contraseña correcta
+
+            if (inputPassword === correctPassword) {
+                document.getElementById("password-screen").style.display = "none";
+                document.getElementById("content").style.display = "block";
+            } else {
+                alert("Contraseña incorrecta. Inténtelo de nuevo.");
+            }
+        }
+    </script>
+</body>
+</html>
