@@ -1,0 +1,77 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELICULAS</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 2em;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .image-container {
+            width: 30%;
+            height: 150px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .image-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 5px red;
+        }
+
+        .image-container:active {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 5px red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>PELICULAS</h1>
+
+    <div class="image-section">
+        <div class="image-container">
+            <a href="PELICULAS/moana_2.html">
+                <img src="https://s3.amazonaws.com/nightjarprod/content/uploads/sites/261/2024/10/16110946/yh64qw9mgXBvlaWDi7Q9tpUBAvH-scaled.jpg" alt="Imagen 1">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="pagina2.html">
+                <img src="https://s3.amazonaws.com/nightjarprod/content/uploads/sites/261/2024/10/16110946/yh64qw9mggXBvlaWDi7Q9tpUBAvH-scaled.jpg" alt="Imagen 2">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="pagina3.html">
+                <img src="https://s3.amazonaws.com/nightjarprod/content/uploads/sites/261/2024/10/16110946/yh64qw9mgXbBvlaWDi7Q9tpUBAvH-scaled.jpg" alt="Imagen 3">
+            </a>
+        </div>
+    </div>
+
+   
+
+</body>
+</html>
