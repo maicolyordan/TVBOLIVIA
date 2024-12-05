@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,8 @@
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
+            margin: 0;
+            padding: 0;
         }
 
         h1 {
@@ -20,11 +22,13 @@
         .image-section {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap; /* Permite que las imágenes se acomoden en varias filas */
             margin: 20px 0;
+            gap: 15px; /* Espacio entre las imágenes */
         }
 
         .image-container {
-            width: 30%;
+            width: calc(33.333% - 10px); /* Hace que cada imagen ocupe un tercio del ancho del contenedor */
             height: 150px;
             overflow: hidden;
             border-radius: 8px;
@@ -50,6 +54,7 @@
     </style>
 </head>
 <body>
+  
    <!-- Chatra {literal} -->
 <script>
     (function(d, w, c) {
@@ -64,6 +69,7 @@
     })(document, window, 'Chatra');
 </script>
 <!-- /Chatra {/literal} -->
+
 
     <h1>PELICULAS</h1>
 
@@ -84,25 +90,44 @@
             </a>
         </div>
     </div>
+
     <div class="image-section">
         <div class="image-container">
             <a href="PELICULA/avatar_2.html">
-                <img src="https://m.media-amazon.com/images/M/MV5BNmQxNjZlZTctMWJiMC00NGMxLWJjNTctNTFiNjA1Njk3ZDQ5XkEyXkFqcGc@._V1_.jpg" alt="Imagen 1">
+                <img src="https://m.media-amazon.com/images/M/MV5BNmQxNjZlZTctMWJiMC00NGMxLWJjNTctNTFiNjA1Njk3ZDQ5XkEyXkFqcGc@._V1_.jpg" alt="Imagen 4">
             </a>
         </div>
         <div class="image-container">
             <a href="PELICULA/jurassic_wor.html">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT47ySGi69fghDcoCc8e5exKhkpnP3NBqAuBg&usqp=CAU" alt="Imagen 2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT47ySGi69fghDcoCc8e5exKhkpnP3NBqAuBg&usqp=CAU" alt="Imagen 5">
             </a>
         </div>
         <div class="image-container">
             <a href="PELICULA/apocalipsis_z.html">
-                <img src="https://zonaaps.com/wp-content/uploads/2024/10/jaBToJ1DZcwn5wOsQeLOXFVlBLn-185x278.jpg" alt="Imagen 3">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/10/jaBToJ1DZcwn5wOsQeLOXFVlBLn-185x278.jpg" alt="Imagen 6">
             </a>
         </div>
     </div>
 
+    <div class="image-section">
+        <div class="image-container">
+            <a href="PELICULA/la_guerra_del_mañana.html">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/04/tzp6VzED2TBc02bkYoYnQa6r2OK-200x300.jpg" alt="Imagen 7">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="PELICULA/ANIMADO/robot_salvaje.html">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/10/sDoXpaKZmrzCSJH63zZvQQ9A7VK-160x240.jpg" alt="Imagen 8">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="PELICULA/ACCION/gladiator_2.html">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/11/vK1sK1B3WglfgVWPn6Xj4nNsw1q-200x300.jpg" alt="Imagen 9">
+            </a>
+        </div>
+    </div>
+
+  
+
 </body>
 </html>
-
- 
