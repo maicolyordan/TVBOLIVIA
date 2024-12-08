@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Búsqueda de Películas</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #busqueda {
+            padding: 10px;
+            width: 60%;
+            margin: 10px 0;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            background-color: #333;
+            color: white;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkred;
+        }
+
+        .image-section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            gap: 15px;
+        }
+
+        .image-container {
+            width: calc(33.333% - 10px);
+            height: 150px;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .image-container:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 10px 5px red;
+        }
+
+        .no-resultados {
+            color: #f1f1f1;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="busqueda" placeholder="Buscar por género o nombre" />
+    <button onclick="buscar()">Buscar</button>
+
+    <div class="image-section" id="resultados"></div>
+
+    <script>
+        const peliculas = [
+            { 
+                texto: 'animado kung fu panda 4', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/03/bqe5pdLIoLeZSszA8N5ZvoIS4aB-200x300.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/kung_fu_panda_4.html' 
+            },
+            { 
+                texto: 'animado querido santa', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/11/2qXb2IDv7Vv3qCoQNs6wTBI8Ud1-200x300.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/querido_santa.html' 
+            },
+            { 
+                texto: 'animado mi villano favorito 4', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/06/6BcxgP05jDip4Zjh2P5Be2aNi0Z-200x300.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/mi_villano_favorito_4.html' 
+            },
+            { 
+                texto: 'cristianas a prueba de fuego', 
+                imagen: 'https://tesoroscristianos.co/wp-content/uploads/2020/07/A-Prueba-de-Fuego.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/a_prueba_de_fuego.html' 
+            },
+            { 
+                texto: 'cristianas manos milagrosa', 
+                imagen: 'https://tesoroscristianos.co/wp-content/uploads/2020/07/Ben-Carson-Manos-Prodigiosas.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/manos_milagrosas.html' 
+            },
+            { 
+                texto: 'cristianas cuarto de guerra', 
+                imagen: 'https://tesoroscristianos.co/wp-content/uploads/2020/07/cuarto-guerra.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/cuarto_de_guerra.html' 
+            },
+            { 
+                texto: 'animado moana 2', 
+                imagen: 'https://s3.amazonaws.com/nightjarprod/content/uploads/sites/261/2024/10/16110946/yh64qw9mgXBvlaWDi7Q9tpUBAvH-scaled.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/moana_2.html' 
+            },
+            { 
+                texto: 'accion venon 3', 
+                imagen: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvhtEJk8iDfApwRJaHpu2Qf5EjDWebxJGmVw&usqp=CAU', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/venom_3.html' 
+            },
+            { 
+                texto: 'accion avatar 2', 
+                imagen: 'https://m.media-amazon.com/images/M/MV5BNmQxNjZlZTctMWJiMC00NGMxLWJjNTctNTFiNjA1Njk3ZDQ5XkEyXkFqcGc@._V1_.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/avatar_2.html' 
+            },
+            { 
+                texto: 'accion apocalipsis z', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/10/jaBToJ1DZcwn5wOsQeLOXFVlBLn-185x278.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/apocalipsis_z.html' 
+            },
+            { 
+                texto: 'accion la guerra del mañana', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/04/tzp6VzED2TBc02bkYoYnQa6r2OK-200x300.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/la_guerra_del_ma%C3%B1ana.html' 
+            },
+            { 
+                texto: 'animado robot salvaje', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/10/sDoXpaKZmrzCSJH63zZvQQ9A7VK-160x240.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/robot_salvaje.html' 
+            },
+            { 
+                texto: 'accion gladiator 2', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/11/vK1sK1B3WglfgVWPn6Xj4nNsw1q-200x300.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/gladiator_2.html' 
+            },
+            { 
+                texto: 'comedia padre no hay mas que uno', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/01/eDLO2nr5xhjOfxDAj3gQao495kw-160x240.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/padre_no_hay_mas_que_uno.html' 
+            },
+            { 
+                texto: 'comedia padre no hay mas que uno 3', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/07/k2v9xSPtiyxCNxaRGtj7COwdgG3-160x240.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/padre_no_hay_mas_que_uno_3.html' 
+            },
+            { 
+                texto: 'comedia padre no hay mas que uno 4', 
+                imagen: 'https://zonaaps.com/wp-content/uploads/2024/10/hTMvGolGJLF0GQ7mlwNjbXpsPZ-160x240.jpg', 
+                enlace: 'https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/padre_no_hay_mas_que_uno_4.html' 
+            },
+        ];
+
+        document.getElementById('busqueda').addEventListener('input', buscar);
+
+function buscar() {
+    const busqueda = document.getElementById('busqueda').value.toLowerCase();
+    const resultadosDiv = document.getElementById('resultados');
+    resultadosDiv.innerHTML = ''; // Limpiar resultados previos
+
+    if (busqueda.length === 0) {
+        return; // Si el campo de búsqueda está vacío, no hacemos nada
+    }
+
+    const palabrasBusqueda = busqueda.split(' ');
+
+    const resultados = peliculas.filter(pelicula => {
+        return palabrasBusqueda.some(palabra => {
+            // Comprobar si al menos tres letras consecutivas de la palabra coinciden en el texto
+            for (let i = 0; i <= palabra.length - 3; i++) {
+                const subcadena = palabra.substring(i, i + 3); // Tomar una subcadena de 3 letras
+                if (pelicula.texto.toLowerCase().includes(subcadena)) {
+                    return true;
+                }
+            }
+            return false;
+        });
+    });
+
+    if (resultados.length === 0) {
+        resultadosDiv.innerHTML = '<p class="no-resultados">No se encontraron resultados.</p>';
+        return;
+    }
+
+    resultados.forEach(pelicula => {
+        const divResultado = document.createElement('div');
+        divResultado.classList.add('image-container');
+
+        const imagen = document.createElement('img');
+        imagen.src = pelicula.imagen;
+        imagen.alt = pelicula.texto;
+        imagen.onclick = function() {
+            window.location.href = pelicula.enlace;
+        };
+
+        divResultado.appendChild(imagen);
+        resultadosDiv.appendChild(divResultado);
+    });
+}
+    </script>
+</body>
+</html>
