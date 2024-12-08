@@ -1,51 +1,145 @@
-       <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Evolucion TV</title>
+    <title>EVOLUCION TV</title>
     <style>
+        /* Fondo negro para el cuerpo */
         body {
-            background-color: #050A30; /* Azul oscuro */
+            background-color: black;
             color: white;
             font-family: Arial, sans-serif;
-            text-align: center;
-            padding-bottom: 100px; /* Espacio para los botones abajo */
+            text-align: center; /* Alinea el texto en el centro */
         }
-        img {
-            max-width: 70%; /* Tamaño máximo de la imagen */
-            height: auto;
-            margin-top: 50px; /* Espacio superior */
+
+        /* Estilo para el título */
+        h1 {
+            font-size: 36px;
+            margin-top: 40px;
+            color: #ffffff;
         }
-        .button {
-            padding: 20px 20px;
-            background-color: #ff1e4d; /* Azul claro */
-            color: white;
-            border: none;
-            border-radius: 5px;
+
+        /* Estilo para el contenedor de la búsqueda */
+        .busqueda-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .input-busqueda {
+            padding: 10px;
             font-size: 16px;
-            margin: 10px;
+            border-radius: 25px;
+            width: 300px;
+            margin-right: 10px;
+        }
+
+        .boton-buscar {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff212f;
+            border: none;
+            border-radius: 25px;
             cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .boton-buscar:hover {
+            background-color: #cc1e26;
+        }
+
+        /* Contenedor para los botones alineados a izquierda y derecha */
+        .botones-alineados {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px; /* Espacio entre filas de botones */
+        }
+
+        /* Estilo para los botones pequeños */
+        .boton-pequeno {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #ff212f;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 48%; /* Asegura que los botones no se toquen */
+        }
+
+        .boton-pequeno:hover {
+            background-color: #cc1e26;
         }
     </style>
 </head>
 <body>
-    <h1>Evolucion TV</h1>
-    <a href="https://example.com"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTECBkygbyVif0zAGgUqTI9WE4Iwo1myy1lw&usqp=CAU" alt="Imagen de enlace"></a>
-    <div>
-        
 
- <button class="button" onclick="window.location.href = 'canales_de_bolivia.html';">CANALES DE BOLIVIA</button>
-      
-        
-    <button class="button" onclick="window.location.href = 'canales_deporte.html';">CANALES DE DEPORTE</button>
-     
-    <button class="button" onclick="window.location.href = 'AMERICA_TV_GO.html';">AMERICA TV GO EN VIVO</button>
+    <!-- Título -->
+    <h1>GENERO</h1>
 
-   <button class="button" onclick="window.location.href = 'PELICULAS.html';">PELÍCULAS</button>
-           
-    <button class="button" onclick="window.location.href = 'https://www.tiktok.com/@maicolyordan40?_t=8qNt7qbn3Yr&_r=1';">SIGUENOS EN TIKTOK</button>
-      
+    <!-- Formulario de búsqueda -->
+    <div class="busqueda-container">
+        <input type="text" class="input-busqueda" placeholder="Escribe aquí..." id="busqueda" onfocus="buscar()">
+        <button class="boton-buscar" onclick="buscar()">Buscar</button>
     </div>
+
+
+
+    <!-- Contenedor para los botones alineados -->
+    <div class="botones-alineados">
+        <!-- Botón alineado a la izquierda -->
+        <button class="boton-pequeno" onclick="redirigir('PELICULAS.html')">PELICULAS</button>
+        
+        <!-- Botón alineado a la derecha -->
+        <button class="boton-pequeno" onclick="redirigir('COMEDIA.html')">COMEDIA</button>
+    </div>
+
+    <!-- Contenedor para los botones alineados en la fila siguiente -->
+    <div class="botones-alineados">
+        <!-- Botón alineado a la izquierda -->
+        <button class="boton-pequeno" onclick="redirigir('ANIMACION.html')">ANIMACION</button>
+        
+        <!-- Botón alineado a la derecha -->
+        <button class="boton-pequeno" onclick="redirigir('ACCION.htmk')">ACCION</button>
+    </div>
+    
+ <div class="botones-alineados">
+        <!-- Botón alineado a la izquierda -->
+        <button class="boton-pequeno" onclick="redirigir('CRISTIANA.html')">CRISTIANA</button>
+        
+        <!-- Botón alineado a la derecha -->
+        <button class="boton-pequeno" onclick="redirigir('canales_de_bolivia.html')">CANALES DE BOLIVIA</button>
+    </div>
+    
+ <div class="botones-alineados">
+        <!-- Botón alineado a la izquierda -->
+        <button class="boton-pequeno" onclick="redirigir('canales_deporte.html')">CANALES DE DEPORTE</button>
+        
+        <!-- Botón alineado a la derecha -->
+        <button class="boton-pequeno" onclick="redirigir('AMERICA_TV_GO.html')">AMERICA TV GO</button>
+    </div>
+
+    <script>
+        function buscar() {
+            var busqueda = document.getElementById('busqueda').value;
+            if (busqueda) {
+                // Redirige a la página de búsqueda con el término ingresado como parámetro
+                window.location.href = "https://maicolyordan.github.io/Evoluci-nTV-/BUSQUEDA.html?q=" + encodeURIComponent(busqueda);
+            } else {
+                // Si el campo está vacío, redirige igualmente con un parámetro vacío
+                window.location.href = "https://maicolyordan.github.io/Evoluci-nTV-/BUSQUEDA.html?q=";
+            }
+        }
+
+        function redirigir(url) {
+            // Redirige a la URL especificada
+            window.location.href = url;
+        }
+    </script>
+
 </body>
 </html>
