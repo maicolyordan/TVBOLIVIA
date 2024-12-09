@@ -1,0 +1,41 @@
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mas alla de los sueños</title>
+    <!-- Estilos de Plyr -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .video-container {
+            margin: 20px auto;
+            max-width: 400px; /* Tamaño reducido */
+        }
+    </style>
+</head>
+<body>
+    <h1>Mas alla de los sueños</h1>
+    <div class="video-container">
+        <!-- Reproductor Plyr -->
+        <video id="player" controls>
+            <source src="https://1a-1791.com/video/s8/2/b/y/S/K/bySKu.aaa.mp4">
+            Tu navegador no soporta este video.
+        </video>
+    </div>
+
+    <!-- Script de Plyr -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        // Inicializar Plyr
+        const player = new Plyr('#player');
+    </script>
+</body>
+</html>
