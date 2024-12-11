@@ -1,0 +1,65 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Una película de huevos
+</title>
+    <!-- Incluye el archivo CSS de Plyr -->
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        .plyr__video-wrapper {
+            margin: 0 auto;
+            max-width: 800px;
+        }
+        h1 {
+            color: #ffffff;
+        }
+        /* Personalización de los botones */
+        .plyr__control {
+            background: #ff0000 !important; /* Color de fondo rojo */
+            color: #ffffff !important; /* Color del icono */
+        }
+        .plyr__control:hover {
+            background: #d40000 !important; /* Color al pasar el cursor */
+        }
+        /* Barra de progreso personalizada */
+        .plyr--video .plyr__progress .plyr__progress--buffer {
+            background: #ffcccc; /* Color de la barra de búfer */
+        }
+        .plyr--video .plyr__progress .plyr__progress--fill {
+            background: #ff0000; /* Color de la barra de progreso */
+        }
+        /* Botón de seguimiento en rojo */
+        .plyr--video .plyr__progress .plyr__progress__handle {
+            background: #ff0000; /* Color del botón de seguimiento */
+        }
+    </style>
+</head>
+<body>
+    <h1>Una película de huevos
+
+</h1>
+    <!-- Video con imagen de póster -->
+    <video id="player" playsinline controls poster="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png">
+        <source src="https://1a-1791.com/video/s8/2/c/s/6/d/cs6du.aaa.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+    </video>
+
+    <!-- Incluye el archivo JavaScript de Plyr -->
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
+    <script>
+        // Inicializa el reproductor Plyr
+        const player = new Plyr('#player', {
+            controls: ['play', 'progress', 'current-time', 'fullscreen'] // Controles personalizados
+        });
+    </script>
+</body>
+</html>
