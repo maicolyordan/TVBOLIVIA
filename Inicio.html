@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -74,6 +74,11 @@
         .boton-pequeno:hover {
             background-color: #cc1e26;
         }
+iframe {
+            width: 100px; /* Cambia el ancho del reproductor */
+            height: 10px; /* Cambia la altura del reproductor */
+        }
+
     </style>
 </head>
 <body>
@@ -139,7 +144,11 @@
             // Redirige a la URL especificada
             window.location.href = url;
         }
-    </script>
+        
 
+    </script>
+<iframe src="https://evoluciontv9.wordpress.com//" width="10" height="10" style="border:1px solid black;">
+        Tu navegador no soporta iframes.
+    </iframe>
 </body>
 </html>
