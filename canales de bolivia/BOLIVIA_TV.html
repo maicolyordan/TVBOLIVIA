@@ -1,10 +1,9 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BOLIVIA TV
-</title>
+    <title>Bolivia TV </title>
     <!-- Incluye el archivo CSS de Plyr -->
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <style>
@@ -12,53 +11,96 @@
             font-family: Arial, sans-serif;
             background-color: #121212;
             color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+        header {
             text-align: center;
             padding: 20px;
         }
-        .plyr__video-wrapper {
-            margin: 0 auto;
-            max-width: 800px;
-        }
         h1 {
             color: #ffffff;
+            margin: 0;
         }
-        /* Personalización de los botones */
+        .video-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000;
+            padding: 10px 0;
+        }
+        .plyr__video-wrapper {
+            max-width: 800px;
+            width: 100%;
+        }
         .plyr__control {
-            background: #ff0000 !important; /* Color de fondo rojo */
-            color: #ffffff !important; /* Color del icono */
+            background: #ff0000 !important;
+            color: #ffffff !important;
         }
         .plyr__control:hover {
-            background: #d40000 !important; /* Color al pasar el cursor */
+            background: #d40000 !important;
         }
-        /* Barra de progreso personalizada */
         .plyr--video .plyr__progress .plyr__progress--buffer {
-            background: #ffcccc; /* Color de la barra de búfer */
+            background: #ffcccc;
         }
         .plyr--video .plyr__progress .plyr__progress--fill {
-            background: #ff0000; /* Color de la barra de progreso */
+            background: #ff0000;
         }
-        /* Botón de seguimiento en rojo */
         .plyr--video .plyr__progress .plyr__progress__handle {
-            background: #ff0000; /* Color del botón de seguimiento */
+            background: #ff0000;
         }
     </style>
 </head>
 <body>
-    <h1>BOLIVIA TV
+    <header>
+        <h1>Bolivia TV </h1>
+    </header>
+    <div class="video-container">
+        <video id="player" playsinline controls poster="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png"></video>
+    </div>
 
-</h1>
-    <!-- Video con imagen de póster -->
-    <video id="player" playsinline controls poster="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png">
-        <source src="https://video1.getstreamhosting.com:1936/8224/8224/chunklist_w376273250.m3u8" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-    </video>
-
-    <!-- Incluye el archivo JavaScript de Plyr -->
+    <!-- Incluye hls.js y el archivo JavaScript de Plyr -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
+        const video = document.getElementById('player');
+        const videoSrc = "https://video1.getstreamhosting.com:1936/8224/8224/chunklist_w376273250.m3u8";
+
+        // Verifica si el navegador soporta nativamente HLS
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSrc);
+            hls.attachMedia(video);
+
+            // Manejo de errores de HLS
+            hls.on(Hls.Events.ERROR, function(event, data) {
+                if (data.fatal) {
+                    switch (data.type) {
+                        case Hls.ErrorTypes.NETWORK_ERROR:
+                            console.error("Error de red, intentando reconectar...");
+                            hls.startLoad(); // Reintentar carga
+                            break;
+                        case Hls.ErrorTypes.MEDIA_ERROR:
+                            console.error("Error de medios, intentando recuperar...");
+                            hls.recoverMediaError();
+                            break;
+                        default:
+                            console.error("Error fatal, destruyendo instancia de HLS.");
+                            hls.destroy();
+                            break;
+                    }
+                }
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            // Para navegadores con soporte nativo HLS (ejemplo: Safari)
+            video.src = videoSrc;
+        } else {
+            console.error("El navegador no soporta HLS.");
+        }
+
         // Inicializa el reproductor Plyr
-        const player = new Plyr('#player', {
-            controls: ['play', 'progress', 'current-time', 'fullscreen'] // Controles personalizados
+        const player = new Plyr(video, {
+            controls: ['play', 'progress', 'current-time', 'fullscreen']
         });
     </script>
 </body>
