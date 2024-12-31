@@ -1,65 +1,68 @@
-  <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UNITEL
-</title>
-    <!-- Incluye el archivo CSS de Plyr -->
+    <title>UNITEL</title>
     <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css">
     <style>
         body {
+            margin: 0;
+            background: #121212;
+            color: #fff;
             font-family: Arial, sans-serif;
-            background-color: #121212;
-            color: #ffffff;
             text-align: center;
-            padding: 20px;
-        }
-        .plyr__video-wrapper {
-            margin: 0 auto;
-            max-width: 800px;
         }
         h1 {
-            color: #ffffff;
+            margin: 10px 0;
         }
-        /* Personalización de los botones */
+        video {
+            display: block;
+            margin: 10px auto;
+            max-width: 800px;
+            width: 100%;
+            background: #000;
+        }
         .plyr__control {
-            background: #ff0000 !important; /* Color de fondo rojo */
-            color: #ffffff !important; /* Color del icono */
+            background: #ff0000 !important; /* Botones rojos */
+            color: #ffffff !important;
         }
         .plyr__control:hover {
-            background: #d40000 !important; /* Color al pasar el cursor */
+            background: #d40000 !important; /* Botones más oscuros al pasar el cursor */
         }
-        /* Barra de progreso personalizada */
         .plyr--video .plyr__progress .plyr__progress--buffer {
-            background: #ffcccc; /* Color de la barra de búfer */
+            background: #ffcccc; /* Barra de búfer en rojo claro */
         }
         .plyr--video .plyr__progress .plyr__progress--fill {
-            background: #ff0000; /* Color de la barra de progreso */
+            background: #ff0000; /* Barra de progreso en rojo */
         }
-        /* Botón de seguimiento en rojo */
         .plyr--video .plyr__progress .plyr__progress__handle {
-            background: #ff0000; /* Color del botón de seguimiento */
+            background: #ff0000; /* Botón de seguimiento en rojo */
         }
     </style>
 </head>
 <body>
-    <h1>UNITEL
+    <h1>UNITEL</h1>
+    <video id="player" playsinline controls poster="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png"></video>
 
-</h1>
-    <!-- Video con imagen de póster -->
-    <video id="player" playsinline controls poster="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png">
-        <source src="https://streamer01.digital.com.bo/session/f99cc3e4-58fa-11ee-9cba-00505683ffaa$h1.0$default/2ap337/__cl/cg:sworigin2/__c/UNITEL/__op/hls-default/__f/index.m3u8" type="video/mp4">
-        Tu navegador no soporta el elemento de video.
-    </video>
-
-    <!-- Incluye el archivo JavaScript de Plyr -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>
     <script>
-        // Inicializa el reproductor Plyr
-        const player = new Plyr('#player', {
-            controls: ['play', 'progress', 'current-time', 'fullscreen'] // Controles personalizados
-        });
+        const video = document.getElementById('player');
+        const src = "https://streamer01.digital.com.bo/session/f99cc3e4-58fa-11ee-9cba-00505683ffaa$h1.0$default/2ap337/__cl/cg:sworigin2/__c/UNITEL/__op/hls-default/__f/index.m3u8";
+
+        if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(src);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.ERROR, (_, data) => {
+                if (data.fatal) hls.startLoad();
+            });
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+            video.src = src;
+        }
+
+        new Plyr(video, { controls: ['play', 'progress', 'fullscreen'] });
     </script>
 </body>
 </html>
