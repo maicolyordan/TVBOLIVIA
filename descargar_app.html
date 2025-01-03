@@ -1,0 +1,97 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación EVOLUCION TV</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Fondo oscuro */
+            color: white;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-size: 36px;
+            color: #FF6347; /* Color de texto para el título */
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px;
+            color: #ddd;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #FF6347; /* Rojo suave */
+            color: white;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px; /* Bordes más suaves */
+            text-transform: uppercase;
+            letter-spacing: 2px; /* Espaciado de letras */
+            transition: background-color 0.3s, transform 0.3s; /* Transiciones suaves */
+            margin-top: 40px;
+        }
+
+        .btn:hover {
+            background-color: #FF4500; /* Rojo más oscuro */
+            transform: scale(1.1); /* Efecto de ampliación */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 40px;
+        }
+
+        /* Diseño responsivo */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 28px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .btn {
+                padding: 12px 25px;
+                font-size: 16px;
+            }
+
+            iframe {
+                height: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Aplicación EVOLUCION TV</h1>
+        <p>La aplicación Evolución TV es para mirar películas, series y mucho más. ¡Descárgala ahora!</p>
+
+        <div class="btn" id="btn-public-dl" onclick="window.location.href='https://icedrive.net/s/yw59Vt9AgTxPNDyP71CbgfiYv1PR';">
+            Descargar
+        </div>
+
+        <!-- iframe agregado con HTTPS -->
+        <iframe src="https://algodo.art.blog/inicio/" title="Video de ejemplo"></iframe>
+    </div>
+</body>
+</html>
