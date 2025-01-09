@@ -1,0 +1,160 @@
+  <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La balada de Buster Scruggs (2018)</title>
+  <style>
+  
+/* Estilo general texto */
+        body {
+            font-family: Arial, sans-serif;
+            
+            padding: 20px;
+            font-weight: 600; /* Haciendo el texto más grueso */
+        }
+        
+        }
+        p {
+            line-height: 1.6;
+        }
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #fff;
+      font-size: 28px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+    .button:hover {
+      background-color: #e60000;
+    }
+    .iframe-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Título -->
+  <h1> La balada de Buster Scruggs (2018)</h1>
+
+  <!-- Contenedor de botones -->
+  <div class="buttons-container">
+    <button class="button" onclick="loadIframe('https://ok.ru/videoembed/7395238480552')">Opción 1</button>
+    <button class="button" onclick="loadIframe('https://ok.ru/videoembed/7852221925935')">opcion 2</button>
+    <button class="button" onclick="loadIframe('https://ok.ru/videoembed/846967147205')">opcion 3</button>
+  </div>
+
+  <!-- Contenedor del iframe -->
+  <div class="iframe-container">
+    <iframe id="secureFrame" src="https://ok.ru/videoembed/7395238480552" 
+      allowfullscreen sandbox="allow-same-origin allow-scripts" 
+      allow="fullscreen; autoplay; encrypted-media">
+    </iframe>
+  </div>
+
+  <script>
+    // Lista de URLs permitidas
+    const allowedURLs = [
+      "https://ok.ru/videoembed/7395238480552", 
+      "https://ok.ru/videoembed/7852221925935", 
+      "https://ok.ru/videoembed/846967147205"
+    ];
+    
+    const iframe = document.getElementById('secureFrame');
+
+    // Función para cargar la URL en el iframe
+    function loadIframe(url) {
+      if (allowedURLs.includes(url)) {
+        iframe.src = url;
+      } else {
+        iframe.src = "about:blank"; // Redirige a una página completamente en blanco
+      }
+    }
+
+    // Asegurar que la URL predeterminada se carga al inicio
+    window.addEventListener('load', () => {
+      iframe.src = "https://ok.ru/videoembed/7395238480552"; // URL predeterminada
+    });
+
+    // Bloquear intentos de navegación no deseados
+    document.addEventListener('contextmenu', (e) => e.preventDefault()); // Bloquear clic derecho
+    document.addEventListener('keydown', (e) => {
+      // Bloquear teclas específicas como F12, Ctrl+U, Ctrl+Shift+I
+      if (e.key === "F12" || (e.ctrlKey && (e.key === "u" || e.key === "U" || e.key === "I"))) {
+        e.preventDefault();
+      }
+    });
+
+    // Bloquear ventanas emergentes y redirecciones
+    const originalWindowOpen = window.open;
+    window.open = function (url) {
+      return null; // Bloquear la ventana emergente
+    };
+
+    // Monitorear cambios en el DOM para bloquear URLs no permitidas
+    const observer = new MutationObserver(() => {
+      const iframeSrc = iframe.src;
+      if (!allowedURLs.includes(iframeSrc)) {
+        iframe.src = "about:blank";
+      }
+    });
+    observer.observe(document.body, { childList: true, subtree: true });
+
+    // Bloquear URLs peligrosas (data:text)
+    if (window.location.href.startsWith("data:text")) {
+      document.body.innerHTML = `<h1 style='color: red;'>Acceso bloqueado</h1>`;
+    }
+  </script>
+<p>
+Relata los cuentos de la vida y la violencia en el Viejo Oeste, de un pistolero cantor, un ladrón de bancos y un par de cazadores de recompensas.
+  </p>
+
+
+</body>
+</html>
