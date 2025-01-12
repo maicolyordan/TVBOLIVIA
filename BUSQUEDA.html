@@ -308,50 +308,57 @@
 
         document.getElementById('busqueda').addEventListener('input', buscar);
 
-function buscar() {
-    const busqueda = document.getElementById('busqueda').value.toLowerCase();
-    const resultadosDiv = document.getElementById('resultados');
-    resultadosDiv.innerHTML = ''; // Limpiar resultados previos
-
-    if (busqueda.length === 0) {
-        return; // Si el campo de búsqueda está vacío, no hacemos nada
-    }
-
-    const palabrasBusqueda = busqueda.split(' ');
-
-    const resultados = peliculas.filter(pelicula => {
-        return palabrasBusqueda.some(palabra => {
-            // Comprobar si al menos tres letras consecutivas de la palabra coinciden en el texto
-            for (let i = 0; i <= palabra.length - 3; i++) {
-                const subcadena = palabra.substring(i, i + 3); // Tomar una subcadena de 3 letras
-                if (pelicula.texto.toLowerCase().includes(subcadena)) {
-                    return true;
+        function calcularCoincidencias(textoPelicula, palabrasBusqueda) {
+            let coincidencias = 0;
+            palabrasBusqueda.forEach(palabra => {
+                for (let i = 0; i <= palabra.length - 3; i++) {
+                    const subcadena = palabra.substring(i, i + 3);
+                    if (textoPelicula.includes(subcadena)) {
+                        coincidencias++;
+                    }
                 }
+            });
+            return coincidencias;
+        }
+
+        function buscar() {
+            const busqueda = document.getElementById('busqueda').value.toLowerCase();
+            const resultadosDiv = document.getElementById('resultados');
+            resultadosDiv.innerHTML = ''; // Limpiar resultados previos
+
+            if (busqueda.length === 0) {
+                return; // Si el campo de búsqueda está vacío, no hacemos nada
             }
-            return false;
-        });
-    });
 
-    if (resultados.length === 0) {
-        resultadosDiv.innerHTML = '<p class="no-resultados">No se encontraron resultados.</p>';
-        return;
-    }
+            const palabrasBusqueda = busqueda.split(' ');
 
-    resultados.forEach(pelicula => {
-        const divResultado = document.createElement('div');
-        divResultado.classList.add('image-container');
+            const resultados = peliculas.map(pelicula => ({
+                ...pelicula,
+                coincidencias: calcularCoincidencias(pelicula.texto.toLowerCase(), palabrasBusqueda)
+            }))
+            .filter(pelicula => pelicula.coincidencias > 0)
+            .sort((a, b) => b.coincidencias - a.coincidencias);
 
-        const imagen = document.createElement('img');
-        imagen.src = pelicula.imagen;
-        imagen.alt = pelicula.texto;
-        imagen.onclick = function() {
-            window.location.href = pelicula.enlace;
-        };
+            if (resultados.length === 0) {
+                resultadosDiv.innerHTML = '<p class="no-resultados">No se encontraron resultados.</p>';
+                return;
+            }
 
-        divResultado.appendChild(imagen);
-        resultadosDiv.appendChild(divResultado);
-    });
-}
+            resultados.forEach(pelicula => {
+                const divResultado = document.createElement('div');
+                divResultado.classList.add('image-container');
+
+                const imagen = document.createElement('img');
+                imagen.src = pelicula.imagen;
+                imagen.alt = pelicula.texto;
+                imagen.onclick = function() {
+                    window.location.href = pelicula.enlace;
+                };
+
+                divResultado.appendChild(imagen);
+                resultadosDiv.appendChild(divResultado);
+            });
+        }
     </script>
 </body>
 </html>
