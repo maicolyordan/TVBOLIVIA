@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -51,6 +51,25 @@
             transform: scale(1.1);
             box-shadow: 0 0 10px 5px red;
         }
+        
+    .button {
+            position: absolute;
+            left: 10px; /* Ajusta la posición horizontal */
+            top: 10px;  /* Ajusta la posición vertical */
+            background-color: red; /* Color de fondo rojo */
+            color: white; /* Color del texto blanco */
+            border: none; /* Sin bordes */
+            padding: 10px 20px; /* Espaciado interno */
+            font-size: 16px; /* Tamaño del texto */
+            border-radius: 5px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+            text-transform: uppercase; /* Texto en mayúsculas */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra del botón */
+        }
+
+        .button:hover {
+            background-color: darkred; /* Color más oscuro al pasar el cursor */
+        }
     </style>
 </head>
 <body>
@@ -69,7 +88,7 @@
     })(document, window, 'Chatra');
 </script>
 <!-- /Chatra {/literal} -->
-
+            <button class="button" onclick="window.location.href='https://maicolyordan.github.io/Evoluci-nTV-/Inicio.html';">VOLVER AL INICIO</button>
 
     <h1>PELICULAS DE COMEDIA</h1>
     
@@ -136,6 +155,11 @@
         <div class="image-container">
             <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/una_novata_en_cuento_de_adas.html">
                 <img src="https://pics.filmaffinity.com/Una_novata_en_un_cuento_de_hadas_Sydney_White-758183536-large.jpg" alt="Imagen 9">
+            </a>
+        </div>
+        <div class="image-container">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/las_travesuras_de_una_sirena.html">
+                <img src="https://image.tmdb.org/t/p/original/BcSX4ymaGR2zGjmASkuyf4rp1L.jpg" alt="Imagen 9">
             </a>
         </div>
     </div>
