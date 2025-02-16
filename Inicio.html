@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+     <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -79,6 +79,17 @@ iframe {
             height: 10px; /* Cambia la altura del reproductor */
         }
 
+
+a img {
+    width: 300px; /* Ajusta el tamaño de la imagen */
+    border-radius: 10px; /* Bordes redondeados */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animación suave */
+}
+
+a img:hover {
+    transform: scale(1.05); /* Efecto de zoom al pasar el mouse */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para resaltar */
+}
     </style>
 </head>
 <body>
@@ -91,8 +102,12 @@ iframe {
         <input type="text" class="input-busqueda" placeholder="Escribe aquí..." id="busqueda" onfocus="buscar()">
         <button class="boton-buscar" onclick="buscar()">Buscar</button>
     </div>
+    
+<a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/deadpool_y_wolverine.html">
+    <img src="https://media.themoviedb.org/t/p/w500_and_h282_face/by8z9Fe8y7p4jo2YlW2SZDnptyT.jpg" alt="Imagen de ejemplo">
+</a>
 
-
+    <h3>Recien agregado</h3>
 
     <!-- Contenedor para los botones alineados -->
     <div class="botones-alineados">
