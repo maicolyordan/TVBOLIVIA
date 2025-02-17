@@ -51,29 +51,43 @@
         }
 
         /* Contenedor para los botones alineados a izquierda y derecha */
-        .botones-alineados {
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            margin-bottom: 20px; /* Espacio entre filas de botones */
-        }
+.botones-alineados {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px; /* Espacio entre filas de botones */
+}
 
-        /* Estilo para los botones pequeños */
-        .boton-pequeno {
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #ff212f;
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            width: 48%; /* Asegura que los botones no se toquen */
-        }
+/* Estilo para los botones pequeños */
+.boton-pequeno {
+    padding: 12px 24px; /* Un poco más de espacio */
+    font-size: 18px; /* Aumenta el tamaño de la fuente */
+    font-weight: 600; /* Texto más grueso */
+    color: white;
+    background-color: #fd162a; /* Color más suave para un toque más moderno */
+    border: 2px solid #ffffff; /* Agrega borde para un diseño más estructurado */
+    border-radius: 50px; /* Borde más redondeado */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Transiciones más suaves */
+    width: 48%; /* Asegura que los botones no se toquen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto 3D sutil */
+}
 
-        .boton-pequeno:hover {
-            background-color: #cc1e26;
-        }
+/* Efecto hover para botones */
+.boton-pequeno:hover {
+    background-color: #219aff; /* Color de fondo más fuerte al pasar el ratón */
+    border-color: #ffffff;; /* Cambio en el borde al pasar el ratón */
+    transform: translateY(-2px); /* Efecto de movimiento sutil */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+/* Estilo para el estado deshabilitado */
+.boton-pequeno:disabled {
+    background-color: #ddd; /* Fondo gris cuando el botón está deshabilitado */
+    border-color: #aaa; /* Borde gris */
+    cursor: not-allowed; /* Cambia el cursor */
+    box-shadow: none; /* Sin sombra */
+}
 iframe {
             width: 100px; /* Cambia el ancho del reproductor */
             height: 10px; /* Cambia la altura del reproductor */
