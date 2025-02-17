@@ -112,9 +112,23 @@
         p {
             line-height: 1.6;
         }
+        
+#volver-inicio {
+    position: absolute;
+    left: 10px; /* Posición en el lado izquierdo */
+    background-color: red; /* Color de fondo rojo */
+    color: white; /* Texto en color blanco */
+border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+}
     </style>
 </head>
 <body>
+  
+  <button id="volver-inicio" onclick="window.location.href='https://maicolyordan.github.io/Evoluci-nTV-/Inicio.html';"> VOLVER AL INICIO </button> 
+  <div style="height: 50px;"></div> 
+   
     <h1>El juego del calamar</h1>
     <video id="player" playsinline controls poster="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png">
         <source id="videoSource" src="https://hugh.cdn.rumble.cloud/video/s8/2/D/S/0/q/DS0qs.aaa.mp4" type="video/mp4">
