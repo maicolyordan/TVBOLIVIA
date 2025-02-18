@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -51,24 +51,87 @@
             transform: scale(1.1);
             box-shadow: 0 0 10px 5px red;
         }
+        
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #009bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .chat-button:hover {
+            background-color: #009bff;
+            transform: scale(1.1);
+        }
+
+        .chat-button:active {
+            transform: scale(0.9);
+        }
+
+        /* Contenedor del chat */
+        .chat-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #009bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-frame {
+            flex-grow: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
   
    <!-- Chatra {literal} -->
 <script>
-    (function(d, w, c) {
-        w.ChatraID = 'r5co9qqQgRzyq7pip';
-        var s = d.createElement('script');
-        w[c] = w[c] || function() {
-            (w[c].q = w[c].q || []).push(arguments);
-        };
-        s.async = true;
-        s.src = 'https://call.chatra.io/chatra.js';
-        if (d.head) d.head.appendChild(s);
-    })(document, window, 'Chatra');
+function toggleChat() {
+            var chatContainer = document.getElementById("chatContainer");
+            if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
+                chatContainer.style.display = "flex";
+            } else {
+                chatContainer.style.display = "none";
+            }
+        }
 </script>
 <!-- /Chatra {/literal} -->
+
+    <button class="chat-button" onclick="toggleChat()">💬</button>
+
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">Chat</div>
+        <iframe class="chat-frame" src="https://evoluciont.chatango.com/"></iframe>
+    </div>
 
 
     <h1>PELICULAS</h1>
