@@ -116,10 +116,76 @@ iframe {
     object-fit: cover;
     cursor: pointer; /* Indica que es clickeable */
 }
+
+
+        .chat-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #009bff;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .chat-button:hover {
+            background-color: #009bff;
+            transform: scale(1.1);
+        }
+
+        .chat-button:active {
+            transform: scale(0.9);
+        }
+
+        /* Contenedor del chat */
+        .chat-container {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 300px;
+            height: 400px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #009bff;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .chat-frame {
+            flex-grow: 1;
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
     </style>
 </head>
 <body>
+ 
+    <button class="chat-button" onclick="toggleChat()">💬</button>
 
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">Chat</div>
+        <iframe class="chat-frame" src="https://evoluciont.chatango.com/"></iframe>
+    </div>
     <!-- Título -->
     <h1>Evolucion TV</h1>
 
@@ -216,7 +282,14 @@ iframe {
         
   
  
-
+function toggleChat() {
+            var chatContainer = document.getElementById("chatContainer");
+            if (chatContainer.style.display === "none" || chatContainer.style.display === "") {
+                chatContainer.style.display = "flex";
+            } else {
+                chatContainer.style.display = "none";
+            }
+        }
     </script>
 <iframe src="https://evoluciontv9.wordpress.com//" width="10" height="10" style="border:1px solid black;">
         Tu navegador no soporta iframes.
