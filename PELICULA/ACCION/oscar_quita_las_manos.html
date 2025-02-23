@@ -1,0 +1,142 @@
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oscar, ¡quita las manos!</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      font-weight: 600;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #fff;
+      font-size: 28px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+    .button:hover {
+      background-color: #e60000;
+    }
+    .iframe-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png');
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+    p {
+      margin-top: 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    
+    #boton-unico {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      position: absolute;
+      left: 10px; /* Ajusta la posición al lado izquierdo */
+      top: 10px; /* Ajusta según la altura deseada */
+    }
+
+    #boton-unico:hover {
+      background-color: darkred; /* Cambia el color al pasar el mouse */
+    }
+  </style>
+</head>
+<body>
+
+  <button id="boton-unico" onclick="window.location.href='https://maicolyordan.github.io/Evoluci-nTV-/Inicio.html';">VOLVER AL INICIO</button>
+  <hr style="border: none; height: 20px;">
+
+  <!-- Título -->
+  <h1>Oscar, ¡quita las manos!</h1>
+
+  <!-- Contenedor de botones -->
+  <div class="buttons-container">
+    <button class="button" onclick="loadIframe('https://www.youtube.com/embed/3ZJT6_YiluA')">Opción 1</button>
+    <button class="button" onclick="loadIframe('https://www.youtube.com/embed/1aG9OnubHVo')">Opción 2</button>
+    <button class="button" onclick="loadIframe('https://youtube.com/embed/rPL0X35eZw0')">Opción 3</button>
+  </div>
+
+  <!-- Contenedor del iframe con imagen de fondo -->
+  <div class="iframe-container">
+    <div class="overlay" id="overlay" onclick="hideOverlay()"></div>
+    <iframe id="videoFrame" src="https://www.youtube.com/embed/3ZJT6_YiluA" allowfullscreen></iframe>
+  </div>
+
+  <!-- Texto adicional debajo del iframe -->
+  <p>
+    Un famoso contrabandista promete a su padre, cuando éste está a punto de fallecer, convertirse en un hombre decente y devolver la honra al nombre de la familia. Pero naturalmente, el paso a la honradez no le resultará fácil y tendrá que enfrentarse a parientes, amigos y enemigos
+  </p>
+
+  <script>
+    function loadIframe(url) {
+      document.getElementById('videoFrame').src = url;
+      hideOverlay(); // Ocultar la imagen de fondo al seleccionar un video
+    }
+
+    function hideOverlay() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>
