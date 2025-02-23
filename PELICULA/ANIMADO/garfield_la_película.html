@@ -1,0 +1,152 @@
+     <html lang="es">
+ <head> 
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Garfield: la película</title> 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      font-weight: 600;
+      overflow-x: hidden;
+    }
+    h1 {
+      color: #fff;
+      font-size: 28px;
+      margin: 20px 0;
+      text-align: center;
+    }
+    .buttons-container {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+    .button {
+      background-color: #ff4d4d;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s ease;
+      text-align: center;
+    }
+    .button:hover {
+      background-color: #e60000;
+    }
+    .iframe-container {
+      position: relative;
+      width: 90%;
+      max-width: 800px;
+      padding-top: 56.25%; /* 16:9 Aspect Ratio */
+      overflow: hidden;
+      border: 2px solid #fff;
+      border-radius: 5px;
+      margin-top: 20px;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/FONDO.png');
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      z-index: 10;
+    }
+    p {
+      margin-top: 20px;
+      text-align: center;
+      line-height: 1.6;
+    }
+    
+#volver-inicio {
+    position: absolute;
+    left: 10px; /* Posición en el lado izquierdo */
+    background-color: red; /* Color de fondo rojo */
+    color: white; /* Texto en color blanco */
+border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+}
+  </style> 
+ </head> 
+ <body> 
+  <button id="volver-inicio" onclick="window.location.href='https://maicolyordan.github.io/Evoluci-nTV-/Inicio.html';"> VOLVER AL INICIO </button> 
+  <div style="height: 50px;"></div> 
+  <!-- Título --> 
+  <h1>Garfield: la película
+</h1> 
+  
+  <!-- Contenedor de botones --> 
+  <div class="buttons-container"> 
+   <button class="button" onclick="loadIframe('https://1a-1791.com/video/fw/s8/2/M/T/2/4/MT24r.aaa.mp4')">Opción 1</button> 
+   <button class="button" onclick="loadIframe('https://sagitario98.com/wetflixx.php?link=https://pomf2.lain.la/f/fenq59v.mp4?download=1')">Opción 2</button> 
+   <button class="button" onclick="loadIframe('https://youtube.com/v/ergn12sstrm2m')">Opción 3</button> 
+  </div> 
+  <!-- Contenedor del iframe --> 
+  <div class="iframe-container"> 
+   <div class="overlay" onclick="hideOverlay()"></div> 
+   <iframe id="secureFrame" src="https://1a-1791.com/video/fw/s8/2/M/T/2/4/MT24r.aaa.mp4" allowfullscreen sandbox="allow-same-origin allow-scripts" allow="fullscreen; autoplay; encrypted-media"> </iframe> 
+  </div> 
+  
+
+  <!-- Texto adicional debajo del iframe --> 
+  <p>  El mundialmente famoso Garfield, el gato casero que odia los lunes y que adora la lasaña, está a punto de vivir una aventura ¡en el salvaje mundo exterior! Tras una inesperada reunión con su largamente perdido padre – el desaliñado gato callejero Vic – Garfield y su amigo canino Odie se ven forzados a abandonar sus perfectas y consentidas vidas al unirse a Vic en un hilarante y muy arriesgado atraco.
+</p> 
+  <script>
+    // Lista de URLs permitidas
+    const allowedURLs = [
+      "https://1a-1791.com/video/fw/s8/2/M/T/2/4/MT24r.aaa.mp4", 
+      "https://sagitario98.com/wetflixx.php?link=https://pomf2.lain.la/f/fenq59v.mp4?download=1", 
+      "https://youtube.com/v/ergn12sstrm2m"
+    ];
+    
+    const iframe = document.getElementById('secureFrame');
+    const overlay = document.querySelector('.overlay');
+
+    // Función para cargar la URL en el iframe
+    function loadIframe(url) {
+      if (allowedURLs.includes(url)) {
+        iframe.src = url;
+      } else {
+        iframe.src = "about:blank"; // Redirige a una página completamente en blanco
+      }
+    }
+
+    // Función para ocultar la imagen de superposición
+    function hideOverlay() {
+      overlay.style.display = 'none';
+    }
+
+    // Asegurar que la URL inicial sea predeterminada
+    window.addEventListener('load', () => {
+      iframe.src = "https://1a-1791.com/video/fw/s8/2/M/T/2/4/MT24r.aaa.mp4";
+    });
+    
+    
+  </script> 
+ </body>
+</html>
