@@ -19,7 +19,13 @@
             margin-top: 40px;
             color: #ffffff;
         }
-
+h3 {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+    color: #ffffff; /* O puedes usar un código hexadecimal, por ejemplo: #1dc8ff */
+}
         /* Estilo para el contenedor de la búsqueda */
         .busqueda-container {
             display: flex;
@@ -50,64 +56,27 @@
             background-color: #cc1e26;
         }
 
-        /* Contenedor para los botones alineados a izquierda y derecha */
-.botones-alineados {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 20px; /* Espacio entre filas de botones */
-}
 
-/* Estilo para los botones pequeños */
-.boton-pequeno {
-    padding: 12px 24px; /* Un poco más de espacio */
-    font-size: 18px; /* Aumenta el tamaño de la fuente */
-    font-weight: 600; /* Texto más grueso */
-    color: white;
-    background-color: #fd162a; /* Color más suave para un toque más moderno */
-    border: 2px solid #ffffff; /* Agrega borde para un diseño más estructurado */
-    border-radius: 50px; /* Borde más redondeado */
-    cursor: pointer;
-    transition: all 0.3s ease; /* Transiciones más suaves */
-    width: 48%; /* Asegura que los botones no se toquen */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para un efecto 3D sutil */
-}
-
-/* Efecto hover para botones */
-.boton-pequeno:hover {
-    background-color: #219aff; /* Color de fondo más fuerte al pasar el ratón */
-    border-color: #ffffff;; /* Cambio en el borde al pasar el ratón */
-    transform: translateY(-2px); /* Efecto de movimiento sutil */
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
-}
-
-/* Estilo para el estado deshabilitado */
-.boton-pequeno:disabled {
-    background-color: #ddd; /* Fondo gris cuando el botón está deshabilitado */
-    border-color: #aaa; /* Borde gris */
-    cursor: not-allowed; /* Cambia el cursor */
-    box-shadow: none; /* Sin sombra */
-}
 iframe {
             width: 100px; /* Cambia el ancho del reproductor */
             height: 10px; /* Cambia la altura del reproductor */
         }
-
+ 
 
 .gallery-container {
     display: flex;
     overflow-x: auto;
-    padding: 8px;  /* Reducción del espacio de padding */
-    gap: 8px;      /* Reducción del espacio entre ítems */
+    padding: 5px;  /* Padding reducido */
+    gap: 5px;      /* Menor espacio entre ítems */
 }
 
 .gallery-item {
     flex-shrink: 0;
-    width: 120px;  /* Tamaño reducido */
-    height: 180px; /* Tamaño reducido */
-    border-radius: 6px;  /* Bordes ligeramente redondeados */
+    width: 90px;  /* Tamaño más pequeño */
+    height: 135px; /* Tamaño más pequeño */
+    border-radius: 4px;  /* Bordes ligeramente redondeados */
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);  /* Sombra más suave */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);  /* Sombra más sutil */
 }
 
 .gallery-item img {
@@ -116,8 +85,6 @@ iframe {
     object-fit: cover;
     cursor: pointer; /* Indica que es clickeable */
 }
-
-
         .chat-button {
             position: fixed;
             bottom: 20px;
@@ -195,26 +162,128 @@ iframe {
         <button class="boton-buscar" onclick="buscar()">Buscar</button>
     </div>
     
-
+    <h3>Recien agregado</h3>
 <div class="gallery-container">
+
         <div class="gallery-item">
-            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/oscar_quita_las_manos.html" target="_blank">
-                <img src="https://pics.filmaffinity.com/oscar-274196247-mmed.jpg" alt="Imagen 3">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/capitan_am%C3%A9rica_un_nuevo_mundo.html" target="_blank">
+                <img src="https://pics.filmaffinity.com/Capitaan_Amaerica_Brave_New_World-662915584-large.jpg" alt="Imagen ">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/paddington_aventura_en_la_selva.html" target="_blank">
+                <img src="https://pics.filmaffinity.com/Paddington_Aventura_en_la_selva-651689640-large.jpg" alt="Imagen ">
             </a>
         </div>
         <div class="gallery-item">
             <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/alien_romulus.html" target="_blank">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkZtVybK1lHzfK1llmTbiHZ8vThTEvxka6KQ&s" alt="Imagen 3">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkZtVybK1lHzfK1llmTbiHZ8vThTEvxka6KQ&s" alt="Imagen ">
             </a>
         </div>
-        <div class="gallery-item">
-            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/godzilla_y_kong_el_nuevo_imperio.html" target="_blank">
-                <img src="https://pics.filmaffinity.com/Godzilla_y_Kong_El_nuevo_imperio-478803486-large.jpg" alt="Imagen 3">
-            </a>
-        </div>
+
         <div class="gallery-item">
             <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ROMANCE/culpa_tuya.html" target="_blank">
-                <img src="https://pics.filmaffinity.com/culpa_tuya-649487543-mmed.jpg" alt="Imagen 2">
+                <img src="https://pics.filmaffinity.com/culpa_tuya-649487543-mmed.jpg" alt="Imagen ">
+            </a>
+        </div>
+
+
+   <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/oscar_quita_las_manos.html" target="_blank">
+                <img src="https://pics.filmaffinity.com/oscar-274196247-mmed.jpg" alt="Imagen ">
+            </a>
+        </div>
+        
+        <!-- Más imágenes pueden agregarse en el mismo formato -->
+    </div>
+    </div>
+    </div>
+    <h3>COMEDIA</h3>
+<div class="gallery-container">
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/papa_o_mama.html" target="_blank">
+                <img src="https://images.justwatch.com/poster/311771355/s718/papa-o-mama-2023.jpg" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/amigos_pasajeros_2.html" target="_blank">
+                <img src="https://www.ecartelera.com/carteles/18000/18055/002_m.jpg" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/como_ser_latin_love.html" target="_blank">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/11/5oOgvJx8D1myuRRyUaTCDCNOYUA-209x300.jpg" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/mi_pobre_angelito_5.html" target="_blank">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/11/nxxcHTbqNrEkrJvtCzxzm3TDtU-200x300.jpg" alt="Imagen 2">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/COMEDIA/mas_alla_de_los_sue%C3%B1os.html" target="_blank">
+                <img src="https://zonaaps.com/wp-content/uploads/2024/11/8KL5iWGQHuQsKJzuZmkZNYpLnJ9-200x300.jpg" alt="Imagen 1">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="CATEGORIA/COMEDIA.html" target="_blank">
+                <img src="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/IMAGEN/mas_peliculas.png" alt="Imagen 1">
+            </a>
+        </div>
+    </div>
+    <h3>ANIMACION</h3>
+<div class="gallery-container">
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/garfield_la_pel%C3%ADcula.html" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpufh8klBlp73SAVQArsgjwTkttWDE4eUO7Q&s" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/intensamente_2.html" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPmFjPXBnvrYU0nKWH3UlIE_t87p0_zmJjbw&s" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/Wallace_y_Gromitla_venganza_se_sirve_con_plumas.html" target="_blank">
+                <img src="https://pics.filmaffinity.com/Wallace_y_Gromit_La_venganza_se_sirve_con_plumas-947062581-large.jpg" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/kung_fu_panda_4.html" target="_blank">
+                <img src="https://media.themoviedb.org/t/p/w188_and_h282_bestv2/nqXsAaQsKw2gKpkfhIgjXNDRqg7.jpg" alt="Imagen 2">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ANIMADO/mi_villano_favorito_4.html" target="_blank">
+                <img src="https://pics.filmaffinity.com/Gru_4_Mi_villano_favorito-802312771-large.jpg" alt="Imagen 1">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="CATEGORIA/ANIMACION.html" target="_blank">
+                <img src="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/IMAGEN/mas_peliculas.png" alt="Imagen 1">
+            </a>
+        </div>
+    </div>
+    <h3>ACCION</h3>
+<div class="gallery-container">
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/mufasa.html" target="_blank">
+                <img src="https://lumiere-a.akamaihd.net/v1/images/wonderwall_instagram_teaser_poster_las_f9b6b48a.jpeg?region=0%2C0%2C800%2C1000" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/el_juego_del_calamar" target="_blank">
+                <img src="https://pics.filmaffinity.com/squid_game_2-988066591-mmed.jpg" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/sonic_3" target="_blank">
+                <img src="https://pics.filmaffinity.com/Sonic_3_La_pelaicula-737206072-large.jpg" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/ACCION/ashfall_alerta_roja.html" target="_blank">
+                <img src="https://pics.filmaffinity.com/Alerta_roja-744289733-large.jpg" alt="Imagen 2">
             </a>
         </div>
         <div class="gallery-item">
@@ -222,48 +291,62 @@ iframe {
                 <img src="https://media.themoviedb.org/t/p/w500_and_h282_face/by8z9Fe8y7p4jo2YlW2SZDnptyT.jpg" alt="Imagen 1">
             </a>
         </div>
-
-
-        
-        <!-- Más imágenes pueden agregarse en el mismo formato -->
+        <div class="gallery-item">
+            <a href="CATEGORIA/ACCION.html" target="_blank">
+                <img src="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/IMAGEN/mas_peliculas.png" alt="Imagen 1">
+            </a>
+        </div>
     </div>
+    <h3>CRISTIANA</h3>
+<div class="gallery-container">
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/desafiando_a_los_gigantes.html" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFjo2f2GspuSE_2G8GKAHlDjOamZoVCqAAosddtcvHXg&s" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/cuenta_regresiva.html" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI2X0LFgTEMXvkVi9M8RRhjzsVLEuHoMor7hDysi8DSA&s" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/una_batalla_de_fe.html" target="_blank">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPfydNDJfjLq2PeLp8klOFwjBCV3vb8BSzeLItEQYopw&s" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/a_prueba_de_fuego.html" target="_blank">
+                <img src="https://tesoroscristianos.co/wp-content/uploads/2020/07/A-Prueba-de-Fuego.jpg" alt="Imagen 2">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/PELICULA/CRISTIANA/manos_milagrosas.html" target="_blank">
+                <img src="https://tesoroscristianos.co/wp-content/uploads/2020/07/Ben-Carson-Manos-Prodigiosas.jpg" alt="Imagen 1">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="CATEGORIA/CRISTIANA.html" target="_blank">
+                <img src="https://raw.githubusercontent.com/maicolyordan/Evoluci-nTV-/refs/heads/Html/IMAGEN/mas_peliculas.png" alt="Imagen 1">
+            </a>
+        </div>
     </div>
-    </div>
-    <h3>Recien agregado</h3>
+    <h3>OTROS</h3>
+<div class="gallery-container">
+        <div class="gallery-item">
+            <a href="canales_de_bolivia.html" target="_blank">
+                <img src="http://imgfz.com/i/LIW7qxu.png" alt="Imagen 3">
+            </a>
+        </div>
+        <div class="gallery-item">
+            <a href="https://maicolyordan.github.io/Evoluci-nTV-/descargar_app.html" target="_blank">
+                <img src="https://play-lh.googleusercontent.com/jMBJujHQ3PKcMtUZPDnXGRJoH7BvGa_Lrvrj2eI_5NLNRJ2Y41CUc30PAI3f0cZhXw" alt="Imagen 3">
+            </a>
+        </div>
 
-    <!-- Contenedor para los botones alineados -->
-    <div class="botones-alineados">
-        <!-- Botón alineado a la izquierda -->
-        <button class="boton-pequeno" onclick="redirigir('PELICULAS.html')">PELICULAS</button>
-        
-        <!-- Botón alineado a la derecha -->
-        <button class="boton-pequeno" onclick="redirigir('CATEGORIA/COMEDIA.html')">COMEDIA</button>
     </div>
-
-    <!-- Contenedor para los botones alineados en la fila siguiente -->
-    <div class="botones-alineados">
-        <!-- Botón alineado a la izquierda -->
-        <button class="boton-pequeno" onclick="redirigir('CATEGORIA/ANIMACION.html')">ANIMACION</button>
-        
-        <!-- Botón alineado a la derecha -->
-        <button class="boton-pequeno" onclick="redirigir('CATEGORIA/ACCION.html')">ACCION</button>
     </div>
     
- <div class="botones-alineados">
-        <!-- Botón alineado a la izquierda -->
-        <button class="boton-pequeno" onclick="redirigir('CATEGORIA/CRISTIANA.html')">CRISTIANA</button>
-        
-        <!-- Botón alineado a la derecha -->
-        <button class="boton-pequeno" onclick="redirigir('canales_de_bolivia.html')">CANALES DE BOLIVIA</button>
-    </div>
-    
 
-
-
- <div class="botones-alineados">
-        <!-- Botón alineado a la derecha -->
-        <button class="boton-pequeno" onclick="redirigir('https://maicolyordan.github.io/Evoluci-nTV-/descargar_app.html')">DESCARGAR LA APLICACION</button>
-    </div>
 
     <script>
         function buscar() {
